@@ -52,7 +52,7 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()  //quy dinh lai cac rule lien quan toi chung thuc cho link duoc goi
-                .antMatchers("/signin","/signup").permitAll()  //permitAll cho phep vao ko can chung thuc
+                .antMatchers("/signin","/signup","/demo/**").permitAll()  //permitAll cho phep vao ko can chung thuc
                 .anyRequest().authenticated()  // tat ca cac link con lai deu phai chung thuc
                 .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
