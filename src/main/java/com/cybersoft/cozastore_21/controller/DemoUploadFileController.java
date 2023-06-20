@@ -29,9 +29,9 @@ public class DemoUploadFileController {
     public ResponseEntity<?> loadFile(@PathVariable String filename){
 
         try {
-            //duong dam folder rooot luu hinh
+            //duong dan folder rooot luu hinh
             Path rootPath = Paths.get(spath);
-            Resource resource = new UrlResource(rootPath.toUri());
+            Resource resource = new UrlResource(rootPath.resolve(filename).toUri());
 
             if(resource.exists()){
                 // neu ton tai thi moi cho download
